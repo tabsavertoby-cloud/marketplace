@@ -55,7 +55,15 @@
 
     --chart-5: 27 87% 67%;
 
-    --radius: 0.5rem
+    --radius: 0.5rem;
+    /* Facebook colors */
+    --facebook-blue: 221 83% 53%;
+    --facebook-blue-hover: 221 83% 48%;
+    --facebook-gray: 0 0% 98%;
+    --facebook-gray-2: 0 0% 96%;
+    --facebook-gray-3: 0 0% 94%;
+    --facebook-text: 0 0% 20%;
+    --facebook-text-secondary: 0 0% 45%;
   }
   .dark {
 
@@ -117,6 +125,26 @@
   animation: fade-in 0.3s ease;
 }
 
+/* Facebook-like components */
+.facebook-card {
+  @apply bg-white rounded-lg shadow-sm border border-gray-200;
+}
+
+.facebook-button {
+  @apply bg-[#1877f2] text-white font-semibold py-2 px-4 rounded-lg hover:bg-[#166fe5] transition-colors;
+}
+
+.facebook-input {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1877f2] focus:border-transparent;
+}
+
+.facebook-sidebar {
+  @apply bg-white border-r border-gray-200;
+}
+
+.facebook-topbar {
+  @apply bg-white border-b border-gray-200 shadow-sm;
+}
 
 @layer base {
   * {

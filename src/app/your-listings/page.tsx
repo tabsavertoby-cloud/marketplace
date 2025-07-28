@@ -1,7 +1,7 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
 import ListingCard from "../../components/ListingCard";
-import { CategoryContext } from "../layout";
+import { CategoryContext } from "../../context/CategoryContext";
 
 const allListings = Array.from({ length: 8 }).map((_, i) => ({
   id: (i + 1).toString(),
