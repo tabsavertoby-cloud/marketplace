@@ -17,12 +17,11 @@ interface Listing {
 }
 
 interface PageProps {
-  params: Promise<{ listingId: string }>
+  params: { listingId: string }
 }
 
 export default function Page({ params }: PageProps) {
-  // Unwrap params using React.use (Next.js 15+ App Router)
-  const { listingId } = React.use(params);
+  const { listingId } = params;
 
   const [listing, setListing] = useState<Listing | null>(null);
   const [loading, setLoading] = useState(true);
@@ -163,7 +162,13 @@ export default function Page({ params }: PageProps) {
       <div className="flex-1 flex items-center justify-center min-w-[300px]">
         <div className="w-full max-w-md h-80 bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
           {listing.photo_url ? (
-            <Image src={listing.photo_url} alt={listing.title} className="object-cover w-full h-full rounded-xl" />
+            <Image 
+              src={listing.photo_url} 
+              alt={listing.title} 
+              className="object-cover w-full h-full rounded-xl"
+              width={512}
+              height={320}
+            />
           ) : (
             <div className="w-full h-full bg-gray-200 rounded-xl" />
           )}

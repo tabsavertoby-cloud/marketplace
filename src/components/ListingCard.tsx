@@ -17,7 +17,13 @@ export default function ListingCard({ id, imageUrl, price, title, location }: Li
         <div className="w-full h-28 bg-gray-100 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
           {/* Image placeholder */}
           {imageUrl ? (
-            <Image src={imageUrl} alt={title} className="object-cover w-full h-full rounded-lg" />
+            <Image 
+              src={imageUrl} 
+              alt={title} 
+              className="object-cover w-full h-full rounded-lg" 
+              width={160}
+              height={112}
+            />
           ) : (
             <div className="w-full h-full bg-gray-200 rounded-lg" />
           )}
