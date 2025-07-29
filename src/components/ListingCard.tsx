@@ -1,37 +1,44 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
+import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
-type ListingCardProps = {
+interface ListingCardProps {
   id: string;
-  imageUrl?: string;
-  price: string;
   title: string;
+  price: number;
   location: string;
-};
+  description: string;
+  imageUrl?: string;
+}
 
-export default function ListingCard({ id, imageUrl, price, title, location }: ListingCardProps) {
+export function ListingCard({
+  id,
+  title,
+  price,
+  location,
+  description,
+  imageUrl = '/placeholder.jpg'
+}: ListingCardProps) {
   return (
-    <Link href={`/${id}`} className="block group">
-      <div className="facebook-card p-3 flex flex-col items-center w-40 h-56 hover:shadow-md transition-shadow">
-        <div className="w-full h-28 bg-gray-100 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
-          {/* Image placeholder */}
-          {imageUrl ? (
-            <Image 
-              src={imageUrl} 
-              alt={title} 
-              className="object-cover w-full h-full rounded-lg" 
-              width={160}
-              height={112}
+    <Link href={`/${id}`}>
+      <Card className="w-full h-full hover:shadow-lg transition-shadow">
+        <CardHeader className="p-0">
+          <div className="aspect-square relative overflow-hidden rounded-t-lg">
+            <div 
+              className="w-full h-full bg-center bg-cover"
+              style={{ backgroundImage: `url(${imageUrl})` }}
             />
-          ) : (
-            <div className="w-full h-full bg-gray-200 rounded-lg" />
-          )}
-        </div>
-        <div className="font-semibold text-lg text-gray-900">{price}</div>
-        <div className="font-medium text-sm leading-tight text-center mt-1 text-gray-800">{title}</div>
-        <div className="text-xs text-gray-500 mt-1 text-center">{location}</div>
-      </div>
+          </div>
+        </CardHeader>
+        <CardContent className="p-4">
+          <div className="mb-2">
+            <h3 className="text-lg font-semibold truncate">{title}</h3>
+            <p className="text-2xl font-bold">${price.toLocaleString()}</p>
+          </div>
+          <p className="text-sm text-gray-500">{location}</p>
+          <p className="text-sm text-gray-600 line-clamp-2 mt-2">{description}</p>
+        </CardContent>
+      </Card>
     </Link>
   );
-} 
+}
