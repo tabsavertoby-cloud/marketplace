@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
-import { Sidebar } from "@/components/layout/sidebar";
+import Sidebar from "@/components/layout/sidebar";
 import { Inter } from "next/font/google";
-import { ListingProvider } from "@/lib/ListingContext";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -31,7 +30,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} ${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ListingProvider> 
         <div className="min-h-screen bg-background">
           <Navbar />
           <Sidebar />
@@ -41,7 +39,6 @@ export default function RootLayout({
             </div>
           </main>
         </div>
-        </ListingProvider>
       </body>
     </html>
   );

@@ -11,7 +11,7 @@ export default function Page() {
       title: "Item for sale",
       description: "List individual items you want to sell",
       icon: ShoppingBag,
-      href: "/listings/new/item"
+      href: "/listings/create-listing"
     },
     {
       title: "Create multiple listings",
