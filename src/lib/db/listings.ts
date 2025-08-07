@@ -1,13 +1,18 @@
 import { supabase } from "@/lib/supabase";
 
-export async function createListing(data: {
-  title: string
-  description: string
-  price: number
-  category: string
-  seller_email: string
-  image_url?: string
-}) {
+export async function createListing(
+  
+  data: {
+    id?: string // Optional, will be auto-generated if not provided
+    title: string
+    description: string
+    price: number
+    category: string
+    seller_email: string
+    image_url?: string
+  }) 
+  
+  {
   const { data: result, error } = await supabase.from('listings').insert(data).select().single()
   if (error) throw error
   return result

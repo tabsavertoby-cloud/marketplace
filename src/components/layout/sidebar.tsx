@@ -5,13 +5,11 @@ import { useSearchParams, useRouter } from "next/navigation";
 
 //UI Imports
 import { Home, Tag, ShoppingBag, HelpCircle, Store, Settings, Heart } from "lucide-react"
-import { Card } from "@/components/ui/card"; // Assuming you have Card component from Shadcn UI
-import { Button } from "@/components/ui/button"; // Assuming you have Button component from Shadcn UI
 import React,{useCallback} from "react";
 
 
 // Define your category list
-const categories = [
+export const categories = [
   "Vehicles", "Property Rentals", "Apparel", "Classifieds", "Electronics", "Entertainment",
   "Family", "Free Stuff", "Garden & Outdoor", "Hobbies", "Home Goods", "Home Improvement",
   "Home Sales", "Musical Instruments", "Office Supplies", "Pet Supplies", "Sporting Goods",
@@ -29,7 +27,7 @@ export default function Sidebar() {
     (category: string) => {
       const params = new URLSearchParams(searchParams);
       params.set("category", category);
-      router.push(`?${params.toString()}`);
+      router.push(`/?${params.toString()}`);
     },
     [router, searchParams]
   );
